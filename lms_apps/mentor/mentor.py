@@ -1,9 +1,10 @@
 from django.db import models
 
-from lms_apps.models import UserModel
+from lms_apps.base_models.base_user import UserModel
 
 
 class Mentor(UserModel):
+    user=models.OneToOneField(on_delete=models.CASCADE,related_name="user_student")
     name = models.CharField(max_length=150)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

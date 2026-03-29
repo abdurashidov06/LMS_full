@@ -6,8 +6,8 @@ from lms_apps.location.locations import Region,District
 
 class Branch(BaseModel):
     name = models.CharField(max_length=300)
-    region=models.ForeignKey(Region,on_delete=models.PROTECT,related_name='region-branch')
-    district=models.ForeignKey(District,on_delete=models.PROTECT,related_name='city-branch')
+    region=models.ForeignKey(Region,on_delete=models.PROTECT,related_name='region_branch')
+    district=models.ForeignKey(District,on_delete=models.PROTECT,related_name='city_branch')
     location=models.TextField()
     latitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
     longitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)

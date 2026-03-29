@@ -1,13 +1,14 @@
+
 from django.db import models
 
-from lms_apps.course.course import Course
-from lms_apps.models import UserModel
+from lms_apps.base_models.base_user import UserModel
+from lms_apps.group.group import Group
 
 
 class Student(UserModel):
-    course=models.ForeignKey(Course,on_delete=models.SET_NULL,related_name='course-student')
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    user=models.OneToOneField(on_delete=models.CASCADE,related_name="user_student")
+    group=models.ForeignKey(Group,on_delete=models.SET_NULL,related_name='course_student')
+
 
     def __str__(self):
         return f"{self.name} - {self.fathers_name}"
