@@ -24,14 +24,14 @@ class Group(BaseModel):
 
     name=models.CharField(max_length=300)
     course=models.ForeignKey(Course,on_delete=models.CASCADE,related_name='groups')
-    mentor=models.ForeignKey(Mentor,on_delete=models.SET_NULL, null=True, related_name='mentor_groups')
-    support=models.ForeignKey(Mentor,on_delete=models.SET_NULL, null=True,related_name='support_groups')
+    mentor=models.ForeignKey(Mentor,on_delete=models.SET_NULL, null=True,blank=True, related_name='mentor_groups')
+    support=models.ForeignKey(Mentor,on_delete=models.SET_NULL, null=True,blank=True,related_name='support_groups')
     study_days = MultiSelectField(choices=StudyDays.choices)
     start_date=models.DateField()
     start_time=models.TimeField()
     end_time=models.TimeField()
     classroom=models.ForeignKey(Auditory,on_delete=models.PROTECT,related_name='auditory_groups')
-    language=models.ForeignKey(Language,on_delete=models.SET_NULL,related_name='language_groups')
+    language=models.ForeignKey(Language,on_delete=models.SET_NULL,null=True,blank=True,related_name='language_groups')
     study_type=models.CharField(
         max_length=3,
         choices=StudyType.choices,

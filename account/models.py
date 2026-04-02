@@ -16,6 +16,5 @@ class User(AbstractUser,BaseModel):
                           default=UserRole.STUDENT
                           )
 
-    username=models.CharField(max_length=100,unique=True)
-    password=models.CharField(max_length=20)
+    username=models.CharField(max_length=20,unique=True)
 

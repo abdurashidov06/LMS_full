@@ -1,11 +1,11 @@
 from django.db import models
 
+from lms_apps.base_models.base_model import BaseModel
 
-class Auditory(models.Model):
+
+class Auditory(BaseModel):
     room=models.IntegerField()
     capacity = models.IntegerField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"{self.room}"

@@ -71,7 +71,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "lms_full",
+        "NAME": "mysite",
         "USER": "postgres",
         "PASSWORD": "Pro_0880",
         "HOST": "127.0.0.1",
@@ -104,7 +104,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'ASIA/TASHKENT'
+TIME_ZONE = 'Asia/Tashkent'
 
 USE_I18N = True
 
