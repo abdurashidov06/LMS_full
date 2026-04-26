@@ -7,7 +7,7 @@ class Language(BaseModel):
     title=models.CharField(max_length=100)
     language=models.CharField(max_length=100)
     flag=models.FileField(
-        upload_to='images/flags/',
+        upload_to='files/flags/',
         null=True,
         blank=True,
     )

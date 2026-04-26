@@ -4,6 +4,7 @@ from lms_apps.base_models.base_model import BaseModel
 
 
 class Holidays(BaseModel):
+    picture=models.ImageField(upload_to="files/holidays_photos/",null=True,blank=True)
     title=models.CharField(max_length=100)
     start_date=models.DateField()
     end_date=models.DateField()

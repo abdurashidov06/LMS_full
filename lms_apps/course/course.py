@@ -5,21 +5,6 @@ from lms_apps.base_models.base_model import BaseModel
 from lms_apps.branch.branch import Branch
 
 
-class CourseQuerySet(models.QuerySet):   #GET
-    def search(self, query: str | None):   # front-end
-        if not query:
-            return self
-        return self.filter(name__icontains=query)
-
-
-class CourseManager(models.Manager):
-    def get_queryset(self):
-        return CourseQuerySet(self.model, using=self._db)
-
-    def search(self, query: str | None):
-        return self.get_queryset().search(query)
-
-
 class Course(BaseModel):
     """Kurslar — """
 
@@ -36,12 +21,11 @@ class Course(BaseModel):
         choices=PaymentType.choices,
         default=PaymentType.MONTHLY
     )
-    # branch                = models.ForeignKey(
-    #     Branch, null=True, blank=True,
-    #     on_delete=models.SET_NULL,
-    #     related_name='courses'
-    # )
-    objects = CourseManager()
+    branch                = models.ForeignKey(
+        Branch, null=True, blank=True,
+        on_delete=models.SET_NULL,
+        related_name='courses'
+    )
 
     def __str__(self):
         return self.name
@@ -61,4 +45,4 @@ class CourseModule(BaseModel):
 
 
     def __str__(self):
-        return f"{self.course} — {self.title}"
+        return f"{self.course} — {self.name}"

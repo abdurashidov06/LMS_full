@@ -22,6 +22,7 @@ class Group(BaseModel):
         ONLINE='ONL', 'Onlayn'
         OFFLINE='OFL', 'Oflayn'
 
+    picture=models.ImageField(upload_to='files/group_pics/',null=True,blank=True)
     name=models.CharField(max_length=300)
     course=models.ForeignKey(Course,on_delete=models.CASCADE,related_name='groups')
     mentor=models.ForeignKey(Mentor,on_delete=models.SET_NULL, null=True,blank=True, related_name='mentor_groups')

@@ -23,16 +23,12 @@ class LessonItem(BaseModel):
     lesson=models.ForeignKey(Lesson,on_delete=models.CASCADE,related_name="lesson_lesson_item")
     content=models.TextField(blank=True,null=True)
     file=models.FileField(upload_to="files/lesson_files/",blank=True,null=True)
-    video=models.FileField(upload_to="videos/lesson",blank=True,null=True)
+    video=models.FileField(upload_to="files/lesson_videos/",blank=True,null=True)
 
     def __str__(self):
         return self.lesson
 
 
-class LessonItemProgress(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    lesson_item = models.ForeignKey(LessonItem, on_delete=models.CASCADE)
-    is_completed = models.BooleanField(default=False)
 
 
 

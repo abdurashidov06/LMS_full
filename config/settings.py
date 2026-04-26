@@ -32,7 +32,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'lms_apps',
     'account',
-    'api'
+    'api',
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
@@ -69,13 +70,13 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "mysite",
-        "USER": "postgres",
-        "PASSWORD": "Pro_0880",
-        "HOST": "127.0.0.1",
-        "PORT": "5432",
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'lms_db',
+        'USER': 'abdulaziz_user',
+        'PASSWORD': '0880',  # Boya o'rnatgan parolimiz
+        'HOST': '127.0.0.1', # TCP/IP orqali ulanish
+        'PORT': '5433',
     }
 }
 
